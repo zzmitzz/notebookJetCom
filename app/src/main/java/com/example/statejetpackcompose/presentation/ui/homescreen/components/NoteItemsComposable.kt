@@ -1,4 +1,4 @@
-package com.example.statejetpackcompose.presentation.ui.detailscreen.components
+package com.example.statejetpackcompose.presentation.ui.homescreen.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -31,12 +31,29 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.statejetpackcompose.domain.model.Note
+import com.example.statejetpackcompose.presentation.theme.NoteColor1
+import com.example.statejetpackcompose.presentation.theme.NoteColor2
+import com.example.statejetpackcompose.presentation.theme.NoteColor3
+import com.example.statejetpackcompose.presentation.theme.NoteColor4
+import com.example.statejetpackcompose.presentation.theme.NoteColor5
+import com.example.statejetpackcompose.presentation.theme.NoteColor6
+import com.example.statejetpackcompose.presentation.theme.NoteColor7
 
 @Composable
 fun NoteItemComposable(note: Note) {
+    val colorList: List<androidx.compose.ui.graphics.Color> = listOf(
+        NoteColor1,
+        NoteColor2,
+        NoteColor3,
+        NoteColor4,
+        NoteColor5,
+        NoteColor6,
+        NoteColor7
+    )
     Card(
         modifier =
             Modifier
@@ -45,7 +62,7 @@ fun NoteItemComposable(note: Note) {
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(8.dp),
         border = BorderStroke(1.dp, Color.LightGray),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFF5F0FF)),
+        colors = CardDefaults.cardColors(containerColor = colorList.random()),
     ) {
         Row(
             modifier = Modifier.padding(16.dp),
@@ -93,7 +110,8 @@ fun NoteItemComposable(note: Note) {
                         )
                         Spacer(modifier = Modifier.width(4.dp))
                         Text(
-                            text = note.timeCreated.toString() ?: "Sep 16, 2023, 12:15 PM",
+                            text = note.lastModify.toString(),
+                            textAlign = TextAlign.Start,
                             style = MaterialTheme.typography.bodySmall,
                             color = Color.Gray,
                         )

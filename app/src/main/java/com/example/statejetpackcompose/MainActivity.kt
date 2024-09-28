@@ -16,7 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
 import com.example.statejetpackcompose.presentation.theme.StateJetpackComposeTheme
-import com.example.statejetpackcompose.presentation.ui.detailscreen.components.HomeScreenStateless
+import com.example.statejetpackcompose.presentation.ui.homescreen.HomeScreenStateful
+import com.example.statejetpackcompose.presentation.ui.homescreen.components.HomeScreenStateless
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             StateJetpackComposeTheme {
                 Surface(modifier = Modifier.fillMaxSize().systemBarsPadding() ) {
-                    HomeScreenStateless(modifier = Modifier.fillMaxSize())
+                    HomeScreenStateful()
                 }
             }
         }
